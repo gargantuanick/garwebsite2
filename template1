@@ -1,0 +1,973 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArcTask — Plan. Prioritize. Ship.</title>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind & Icons & Charts -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head>
+
+  <body class="antialiased bg-black text-gray-100 selection:bg-teal-400/20 selection:text-teal-200" style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial">
+    <!-- Scroll progress -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-blue-400 to-purple-400 w-0 z-[60]" style="width: 0%;"></div>
+
+    <!-- Header -->
+    <header id="site-header" class="fixed top-0 inset-x-0 z-50 backdrop-blur-md border-b bg-black/70 border-white/5 transition-transform duration-300 will-change-transform">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16">
+        <div class="h-full flex items-center justify-between">
+          <!-- Brand -->
+          <a href="#overview" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-[inset_0_0_0_2px_rgba(255,255,255,0.06)]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]" aria-hidden="true">
+                <path d="M3 12h18"></path>
+                <path d="M3 6h18"></path>
+                <path d="M3 18h18"></path>
+              </svg>
+            </span>
+            <span class="text-lg tracking-tight" style="font-family: 'Plus Jakarta Sans', Inter, sans-serif">ArcTask</span>
+          </a>
+
+          <!-- Desktop nav -->
+          <div class="hidden md:flex items-center gap-1 rounded-full border border-white/10 px-2">
+            <a data-nav-link="" href="#features" class="px-3 py-2 text-sm text-gray-300 hover:text-white transition">Features</a>
+            <a data-nav-link="" href="#product" class="px-3 py-2 text-sm text-gray-300 hover:text-white transition">Product</a>
+            <a data-nav-link="" href="#analytics" class="px-3 py-2 text-sm text-gray-300 hover:text-white transition">Analytics</a>
+            <a data-nav-link="" href="#pricing" class="px-3 py-2 text-sm text-gray-300 hover:text-white transition">Pricing</a>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex items-center gap-3">
+            <a href="#try" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm bg-gray-100 text-black hover:bg-gray-200 transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500">
+              Sign in
+            </a>
+            <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-panel" class="md:hidden p-2 rounded-md transition-colors hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-5 h-5" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" class="lucide lucide-x w-5 h-5 hidden" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden sm:pt-28 pt-24 pb-14">
+      <div data-us-project="ju5gjGnrRr5Ud4fAt7eh" class="absolute top-0 left-0 w-full h-full -z-10"></div><script type="text/javascript">!function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();</script>
+
+      <!-- Background -->
+      <div class="relative-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pr-4 pl-4">
+        <div class="flex flex-col gap-10 lg:gap-16 text-center items-center">
+          <div class="max-w-3xl mx-auto">
+            <span class="text-xs uppercase tracking-wider text-blue-300/90">New: Sprint templates</span>
+            <h1 class="mt-3 text-4xl sm:text-5xl lg:text-6xl leading-tight tracking-tight" style="font-family: 'Plus Jakarta Sans', Inter, sans-serif; font-weight: 600">
+              Plan. Prioritize. Ship without friction.
+            </h1>
+            <p class="mt-6 text-lg text-gray-300 max-w-xl mx-auto">
+              ArcTask keeps teams aligned with clean boards, fast capture, and
+              clear progress—so work actually ships.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 mt-8 justify-center">
+              <a href="#try" class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm bg-blue-400 text-black hover:bg-blue-300 transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500">
+                Start free
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </a>
+              <a href="#product" class="inline-flex items-center gap-2 hover:bg-white/10 transition-all text-gray-100 bg-white/5 border-white/10 border rounded-full px-5 py-3 backdrop-blur-lg">
+                See product
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="play" class="lucide lucide-play w-4 h-4"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+              </a>
+            </div>
+
+            <div class="mt-8 flex items-center gap-6 justify-center">
+              <div class="flex -space-x-2">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=160&amp;q=80" alt="" class="w-9 h-9 rounded-full border-2 border-black object-cover">
+                <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=160&amp;q=80" alt="" class="w-9 h-9 rounded-full border-2 border-black object-cover">
+                <img src="https://images.unsplash.com/photo-1500649297466-74794c70acfc?w=160&amp;q=80" alt="" class="w-9 h-9 rounded-full border-2 border-black object-cover">
+                <div class="w-9 h-9 rounded-full border-2 border-black bg-blue-400 flex items-center justify-center text-black text-xs">
+                  2k+
+                </div>
+              </div>
+              <div>
+                <p class="text-sm text-gray-100">2,000+ teams onboarded</p>
+                <p class="text-sm text-gray-400">From startups to enterprise</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product preview -->
+          <div class="relative w-full max-w-4xl mx-auto mt-6">
+            <div class="relative overflow-hidden bg-gray-900/50 border-white/10 border rounded-2xl shadow-2xl backdrop-blur-lg">
+              <!-- Board banner -->
+              <div class="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/40">
+                <div class="flex items-center gap-2">
+                  <span class="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="layout-dashboard" class="lucide lucide-layout-dashboard w-4.5 h-4.5"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+                  </span>
+                  <p class="text-sm">Sprint Alpha</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="inline-flex items-center gap-1.5 rounded-md bg-emerald-400/10 px-2 py-1 text-xs text-emerald-300 ring-1 ring-emerald-400/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle2" class="lucide lucide-check-circle2 w-3.5 h-3.5"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+                    On‑track
+                  </span>
+                </div>
+              </div>
+
+              <!-- Board + Tasks -->
+              <div class="grid md:grid-cols-2 gap-0">
+                <!-- Left: compact board -->
+                <div class="border-white/10 border-r pt-4 pr-4 pb-4 pl-4">
+                  <div class="grid grid-cols-3 gap-3">
+                    <!-- Backlog -->
+                    <div class="">
+                      <div class="flex items-center justify-between mb-2">
+                        <p class="text-xs text-gray-400">Backlog</p>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10">3</span>
+                      </div>
+                      <div class="space-y-2" aria-label="Backlog column preview">
+                        <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                          <p class="text-sm">Auth error states</p>
+                        </div>
+                        <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                          <p class="text-sm">Refactor task card</p>
+                        </div>
+                        <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                          <p class="text-sm">Webhooks retry logic</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Doing -->
+                    <div class="">
+                      <div class="flex items-center justify-between mb-2">
+                        <p class="text-xs text-gray-400">Doing</p>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10">2</span>
+                      </div>
+                      <div class="space-y-2">
+                        <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                          <p class="text-sm">New sprint template</p>
+                        </div>
+                        <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                          <p class="text-sm">Email digest</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Review -->
+                    <div class="">
+                      <div class="flex items-center justify-between mb-2">
+                        <p class="text-xs text-gray-400">Review</p>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10">1</span>
+                      </div>
+                      <div class="space-y-2">
+                        <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                          <p class="text-sm">API docs</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Mini chart (wrapped to avoid sizing bug) -->
+                  <div class="mt-4 rounded-lg border border-white/10 p-3">
+                    <div class="flex items-center justify-between">
+                      <p class="text-xs text-gray-300">7‑day completion</p>
+                      <span class="text-xs text-gray-400"><span class="text-gray-100">+18%</span> week</span>
+                    </div>
+                    <div class="mt-2 h-16 w-full">
+                      <div class="w-full h-full">
+                        <canvas id="miniChart" width="776" height="128" style="display: block; box-sizing: border-box; height: 64px; width: 388px;" class=""></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right: task list with custom checkboxes -->
+                <div class="p-4">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sm">My day</p>
+                    <span id="task-counter" class="text-xs text-gray-400">0/4 done</span>
+                  </div>
+                  <div class="mt-3 space-y-2" id="task-list">
+                    <!-- Task item -->
+                    <div class="flex items-start gap-3 rounded-lg bg-white/5 border border-white/10 px-3 py-2" data-task="">
+                      <button type="button" class="relative mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-md bg-black/40 border border-white/15 hover:border-white/25 transition" data-checkbox="" aria-checked="false" aria-label="Toggle task">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 opacity-0 transition"><path d="M20 6 9 17l-5-5"></path></svg>
+                      </button>
+                      <div class="min-w-0">
+                        <p class="text-sm leading-snug">Review PR #248</p>
+                        <p class="text-xs text-gray-400">Core UI · Today</p>
+                      </div>
+                      <span class="ml-auto text-[10px] px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 ring-1 ring-amber-400/20">P2</span>
+                    </div>
+
+                    <div class="flex items-start gap-3 rounded-lg bg-white/5 border border-white/10 px-3 py-2" data-task="">
+                      <button type="button" class="relative mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-md bg-black/40 border border-white/15 hover:border-white/25 transition" data-checkbox="" aria-checked="false" aria-label="Toggle task">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 opacity-0 transition"><path d="M20 6 9 17l-5-5"></path></svg>
+                      </button>
+                      <div class="min-w-0">
+                        <p class="text-sm leading-snug">
+                          Draft weekly release notes
+                        </p>
+                        <p class="text-xs text-gray-400">Marketing · Today</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 rounded-lg bg-white/5 border border-white/10 px-3 py-2" data-task="">
+                      <button type="button" class="relative mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-md bg-black/40 border border-white/15 hover:border-white/25 transition" data-checkbox="" aria-checked="false" aria-label="Toggle task">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 opacity-0 transition"><path d="M20 6 9 17l-5-5"></path></svg>
+                      </button>
+                      <div class="min-w-0">
+                        <p class="text-sm leading-snug">
+                          Sync with QA on test plan
+                        </p>
+                        <p class="text-xs text-gray-400">QA · 2:00 PM</p>
+                      </div>
+                      <span class="ml-auto text-[10px] px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-300 ring-1 ring-emerald-400/20">Ready</span>
+                    </div>
+
+                    <div class="flex items-start gap-3 rounded-lg bg-white/5 border border-white/10 px-3 py-2" data-task="">
+                      <button type="button" class="relative mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-md bg-black/40 border border-white/15 hover:border-white/25 transition" data-checkbox="" aria-checked="false" aria-label="Toggle task">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3.5 h-3.5 opacity-0 transition"><path d="M20 6 9 17l-5-5"></path></svg>
+                      </button>
+                      <div class="min-w-0">
+                        <p class="text-sm leading-snug">
+                          Prepare operations runbook
+                        </p>
+                        <p class="text-xs text-gray-400">Ops · Tomorrow</p>
+                      </div>
+                      <span class="ml-auto text-[10px] px-2 py-0.5 rounded bg-fuchsia-400/10 text-fuchsia-300 ring-1 ring-fuchsia-400/20">Doc</span>
+                    </div>
+                  </div>
+
+                  <!-- Quick actions -->
+                  <div class="mt-4 flex items-center justify-between">
+                    <button class="text-xs text-gray-300 hover:text-white px-3 py-2 rounded-lg bg-white/5 border border-white/10 inline-flex items-center gap-2" type="button" id="clear-completed">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-check" class="lucide lucide-check-check w-4 h-4"><path d="M18 6 7 17l-5-5"></path><path d="m22 10-7.5 7.5L13 16"></path></svg>
+                      Clear completed
+                    </button>
+                    <button class="text-xs text-blue-300 hover:text-blue-200 inline-flex items-center gap-2" type="button" id="add-quick">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus" class="lucide lucide-plus w-4 h-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+                      Quick add
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End preview -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-16 bg-gray-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-6">
+          <div class="">
+            <p class="text-sm uppercase tracking-wider text-blue-300/90">
+              Features
+            </p>
+            <h2 class="mt-2 text-3xl lg:text-4xl tracking-tight text-white" style="font-family: 'Plus Jakarta Sans', Inter, sans-serif; font-weight: 600">
+              Everything you need to move work forward
+            </h2>
+          </div>
+          <a href="#product" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm bg-white/5 text-gray-100 hover:bg-white/10 border border-white/10 transition-all hover:scale-[1.02]">
+            Explore product
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="group rounded-xl border border-white/10 bg-black/40 p-5 hover:bg-black/50 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="columns-3" class="lucide lucide-columns-3 w-5 h-5 text-gray-300"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path><path d="M15 3v18"></path></svg>
+            </div>
+            <h3 class="mt-4 text-lg tracking-tight">Boards &amp; lists</h3>
+            <p class="mt-2 text-sm text-gray-400">
+              Switch seamlessly between Kanban and list to match your focus.
+            </p>
+          </div>
+
+          <div class="group rounded-xl border border-white/10 bg-black/40 p-5 hover:bg-black/50 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar" class="lucide lucide-calendar w-5 h-5 text-gray-300"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+            </div>
+            <h3 class="mt-4 text-lg tracking-tight">Calendar</h3>
+            <p class="mt-2 text-sm text-gray-400">
+              Deadlines you can trust, with automatic reminders.
+            </p>
+          </div>
+
+          <div class="group rounded-xl border border-white/10 bg-black/40 p-5 hover:bg-black/50 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="bolt" class="lucide lucide-bolt w-5 h-5 text-gray-300"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><circle cx="12" cy="12" r="4"></circle></svg>
+            </div>
+            <h3 class="mt-4 text-lg tracking-tight">Automation</h3>
+            <p class="mt-2 text-sm text-gray-400">
+              Reduce busywork with rules and templates that scale.
+            </p>
+          </div>
+
+          <div class="group rounded-xl border border-white/10 bg-black/40 p-5 hover:bg-black/50 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="plug" class="lucide lucide-plug w-5 h-5 text-gray-300"><path d="M12 22v-5"></path><path d="M9 8V2"></path><path d="M15 8V2"></path><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"></path></svg>
+            </div>
+            <h3 class="mt-4 text-lg tracking-tight">Integrations</h3>
+            <p class="mt-2 text-sm text-gray-400">
+              Connect tools you already use: Git, Slack, Docs, and more.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product -->
+    <section id="product" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5">
+            <h2 class="text-3xl lg:text-4xl tracking-tight" style="font-family: 'Plus Jakarta Sans', Inter, sans-serif; font-weight: 600">
+              Focused by design
+            </h2>
+            <p class="mt-3 text-gray-300">
+              Create clarity with a clean, minimal interface. Less noise, more
+              signal—so your team knows what matters now.
+            </p>
+            <ul class="mt-6 space-y-3 text-sm text-gray-300">
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/5 border border-white/10">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                </span>
+                Quick capture with keyboard everywhere.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/5 border border-white/10">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                </span>
+                Flexible fields: assignees, labels, dates.
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md bg-white/5 border border-white/10">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                </span>
+                Smart filters for sprints, teams, or goals.
+              </li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-7 rounded-2xl border border-white/10 bg-gradient-to-b from-gray-950 to-black overflow-hidden">
+            <div class="p-5 grid md:grid-cols-3 gap-4">
+              <!-- Column -->
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <p class="text-sm">Backlog</p>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10">6</span>
+                </div>
+                <div class="space-y-2">
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <p class="text-sm">Batch actions on tasks</p>
+                  </div>
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <p class="text-sm">Refine “My Day” suggestions</p>
+                  </div>
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <p class="text-sm">Timeline view</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <p class="text-sm">In Progress</p>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10">3</span>
+                </div>
+                <div class="space-y-2">
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <p class="text-sm">Dependencies v1</p>
+                  </div>
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <p class="text-sm">Notifications center</p>
+                  </div>
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <p class="text-sm">Slack actions</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <p class="text-sm">Review</p>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10">1</span>
+                </div>
+                <div class="space-y-2">
+                  <div class="rounded-lg bg-white/5 border border-white/10 p-3">
+                    <p class="text-sm">Mobile onboarding</p>
+                  </div>
+                </div>
+
+                <div class="h-px bg-white/10 my-4"></div>
+
+                <div class="flex items-center justify-between">
+                  <p class="text-xs text-gray-300">SLA</p>
+                  <p class="text-xs">
+                    <span class="text-gray-100">98%</span> last 30d
+                  </p>
+                </div>
+                <div class="mt-2 h-16 w-full">
+                  <div class="w-full h-full">
+                    <canvas id="spark" width="416" height="128" style="display: block; box-sizing: border-box; height: 64px; width: 208px;"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-5 pb-5">
+              <div class="rounded-xl border border-white/10 bg-black/40 p-4">
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="wand-2" class="lucide lucide-wand-2 w-4.5 h-4.5"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path><path d="m14 7 3 3"></path><path d="M5 6v4"></path><path d="M19 14v4"></path><path d="M10 2v2"></path><path d="M7 8H3"></path><path d="M21 16h-4"></path><path d="M11 3H9"></path></svg>
+                  </span>
+                  <div>
+                    <p class="text-sm">Automation suggestion</p>
+                    <p class="text-xs text-gray-400">
+                      Auto‑assign tasks with “bug” label to QA.
+                    </p>
+                  </div>
+                  <button class="ml-auto text-xs px-3 py-1.5 rounded-md bg-white/5 border border-white/10 hover:bg-white/10" type="button">
+                    Apply
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /Product block -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Analytics -->
+    <section id="analytics" class="bg-gray-950 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5">
+            <p class="text-sm uppercase tracking-wider text-blue-300/90">
+              Analytics
+            </p>
+            <h2 class="mt-2 text-3xl lg:text-4xl tracking-tight" style="font-family: 'Plus Jakarta Sans', Inter, sans-serif; font-weight: 600">
+              Progress you can trust
+            </h2>
+            <p class="mt-3 text-gray-300">
+              Real‑time insight into throughput, cycle time, and forecast—no
+              spreadsheets required.
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 rounded-2xl border border-white/10 bg-gradient-to-b from-gray-950 to-black p-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm">Throughput</p>
+                <p class="text-xs text-gray-400">Tasks completed per day</p>
+              </div>
+              <div class="inline-flex items-center gap-2 text-xs px-2 py-1 rounded-md bg-white/5 border border-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="trending-up" class="lucide lucide-trending-up w-4 h-4 text-emerald-300"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg>
+                <span class="text-emerald-300">+12%</span>
+              </div>
+            </div>
+            <div class="mt-3">
+              <!-- Wrap canvas in a div to avoid growth issues -->
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3">
+                <div class="relative w-full h-64">
+                  <div class="w-full h-full">
+                    <canvas id="mainChart" width="1262" height="512" style="display: block; box-sizing: border-box; height: 256px; width: 631px;"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3">
+                <p class="text-xs text-gray-400">Median cycle time</p>
+                <p class="text-lg mt-1">1.9 days</p>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/5 p-3">
+                <p class="text-xs text-gray-400">On‑time delivery</p>
+                <p class="text-lg mt-1">96%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <p class="text-sm uppercase tracking-wider text-blue-300/90">
+              Pricing
+            </p>
+            <h2 class="mt-2 text-3xl lg:text-4xl tracking-tight" style="font-family: 'Plus Jakarta Sans', Inter, sans-serif; font-weight: 600">
+              Simple plans, no surprises
+            </h2>
+          </div>
+        </div>
+
+        <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Starter -->
+          <div class="rounded-2xl border border-white/10 bg-gradient-to-b from-gray-950 to-black p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg tracking-tight">Starter</h3>
+              <span class="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10">For individuals</span>
+            </div>
+            <p class="mt-1 text-sm text-gray-400">Tasks, boards, calendar</p>
+            <div class="mt-5 flex items-baseline gap-1">
+              <span class="text-3xl">$0</span><span class="text-sm text-gray-400">forever</span>
+            </div>
+            <ul class="mt-5 space-y-2 text-sm text-gray-300">
+              <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                Unlimited tasks
+              </li>
+              <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                2 boards
+              </li>
+            </ul>
+            <a href="#try" class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm bg-white/5 text-gray-100 hover:bg-white/10 border border-white/10 transition-all">Get started</a>
+          </div>
+
+          <!-- Pro -->
+          <div class="rounded-2xl border border-blue-400/30 bg-gradient-to-b from-gray-900/80 to-black p-6 relative">
+            <div class="absolute -top-3 right-4 px-2 py-1 rounded-full text-xs bg-blue-400 text-black">
+              Best value
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg tracking-tight">Pro</h3>
+              <span class="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10">For teams</span>
+            </div>
+            <p class="mt-1 text-sm text-gray-300">
+              Everything in Starter plus advanced reports and automations.
+            </p>
+            <div class="mt-5 flex items-baseline gap-1">
+              <span class="text-3xl">$12</span><span class="text-sm text-gray-400">/user/mo</span>
+            </div>
+            <ul class="mt-5 space-y-2 text-sm text-gray-300">
+              <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                Unlimited boards
+              </li>
+              <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                Advanced analytics
+              </li>
+              <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                Automations
+              </li>
+            </ul>
+            <a href="#try" class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm bg-blue-400 text-black hover:bg-blue-300 transition-all">Try Pro</a>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="rounded-2xl border border-white/10 bg-gradient-to-b from-gray-950 to-black p-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg tracking-tight">Enterprise</h3>
+              <span class="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10">Security &amp; SSO</span>
+            </div>
+            <p class="mt-1 text-sm text-gray-400">
+              Scale confidently with controls, SSO, and priority support.
+            </p>
+            <div class="mt-5 flex items-baseline gap-1">
+              <span class="text-3xl">Custom</span>
+            </div>
+            <ul class="mt-5 space-y-2 text-sm text-gray-300">
+              <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                SSO, SCIM
+              </li>
+              <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                Data export &amp; DLP
+              </li>
+              <li class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-teal-300"><path d="M20 6 9 17l-5-5"></path></svg>
+                Priority support
+              </li>
+            </ul>
+            <a href="#try" class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 rounded-full text-sm bg-white/5 text-gray-100 hover:bg-white/10 border border-white/10 transition-all">Contact sales</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <a href="#overview" class="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-[inset_0_0_0_2px_rgba(255,255,255,0.06)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[18px] h-[18px]" aria-hidden="true">
+                  <path d="M3 12h18"></path>
+                  <path d="M3 6h18"></path>
+                  <path d="M3 18h18"></path>
+                </svg>
+              </span>
+              <span class="text-lg tracking-tight" style="font-family: 'Plus Jakarta Sans', Inter, sans-serif">ArcTask</span>
+            </a>
+            <p class="mt-3 text-sm text-gray-400 max-w-md">
+              A clean, fast way to plan, prioritize, and ship—together.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-sm">Product</h4>
+            <ul class="mt-3 space-y-2 text-sm text-gray-400">
+              <li><a href="#features" class="hover:text-gray-200">Features</a></li>
+              <li><a href="#product" class="hover:text-gray-200">Product</a></li>
+              <li><a href="#analytics" class="hover:text-gray-200">Analytics</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm">Company</h4>
+            <ul class="mt-3 space-y-2 text-sm text-gray-400">
+              <li><a href="#pricing" class="hover:text-gray-200">Pricing</a></li>
+              <li>
+                <a href="#overview" class="hover:text-gray-200">Status</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-xs text-gray-500">
+            © <span id="year">2025</span> ArcTask. All rights reserved.
+          </p>
+          <div class="flex items-center gap-4 text-xs text-gray-500">
+            <a href="#" class="hover:text-gray-300">Terms</a>
+            <a href="#" class="hover:text-gray-300">Privacy</a>
+            <a href="#overview" class="inline-flex items-center gap-1 hover:text-gray-300">
+              Back to top
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-up" class="lucide lucide-arrow-up w-3.5 h-3.5"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Icons
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.lucide && window.lucide.createIcons) {
+          lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+        }
+      });
+
+      // Scroll progress
+      const progressEl = document.getElementById('scroll-progress');
+      function setProgress() {
+        const h = document.documentElement;
+        const st = h.scrollTop || document.body.scrollTop;
+        const sh = h.scrollHeight - h.clientHeight;
+        progressEl.style.width = (sh ? (st / sh) * 100 : 0) + '%';
+      }
+      setProgress();
+      window.addEventListener('scroll', setProgress, { passive: true });
+      window.addEventListener('resize', setProgress);
+
+      // Header hide on scroll
+      const header = document.getElementById('site-header');
+      let lastY = window.pageYOffset;
+      window.addEventListener(
+        'scroll',
+        () => {
+          const y = window.pageYOffset;
+          if (y > lastY && y > 80) header.classList.add('-translate-y-full');
+          else header.classList.remove('-translate-y-full');
+          lastY = y;
+        },
+        { passive: true }
+      );
+
+      // Smooth scroll
+      function smoothScrollTo(targetId) {
+        const el = document.querySelector(targetId);
+        if (!el) return;
+        const headerH = header?.offsetHeight || 64;
+        const top =
+          el.getBoundingClientRect().top + window.pageYOffset - headerH + 6;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      document
+        .querySelectorAll('a[href^="#"]:not([data-mobile-link])')
+        .forEach((a) => {
+          a.addEventListener('click', (e) => {
+            const href = a.getAttribute('href');
+            const target = href && document.querySelector(href);
+            if (!href || !target) return;
+            e.preventDefault();
+            smoothScrollTo(href);
+          });
+        });
+
+      // Scroll spy
+      const sections = ['#overview', '#features', '#product', '#analytics', '#pricing'];
+      const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+      const mobileLinks = Array.from(
+        document.querySelectorAll('[data-mobile-link]')
+      );
+      function setActive(href) {
+        [...navLinks, ...mobileLinks].forEach((link) => {
+          const isActive = link.getAttribute('href') === href;
+          link.classList.toggle('text-white', isActive);
+        });
+      }
+      const spy = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActive('#' + entry.target.id);
+          });
+        },
+        { rootMargin: '-45% 0px -50% 0px', threshold: 0.01 }
+      );
+      sections.forEach((id) => {
+        const el = document.querySelector(id);
+        if (el) spy.observe(el);
+      });
+
+      // Mobile panel
+      const navToggle = document.getElementById('nav-toggle');
+      const mobilePanel = document.getElementById('mobile-panel');
+      const overlay = mobilePanel?.querySelector('[data-close-overlay]');
+      const menuIcon = navToggle?.querySelector('[data-lucide="menu"]');
+      const closeIcon = navToggle?.querySelector('[data-lucide="x"]');
+
+      function setMobileOpen(open) {
+        if (!mobilePanel) return;
+        navToggle?.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+        mobilePanel.style.pointerEvents = open ? 'auto' : 'none';
+        mobilePanel.style.opacity = open ? '1' : '0';
+        const sheet = mobilePanel.querySelector('.absolute.inset-x-0.top-0');
+        if (sheet) {
+          sheet.style.transform = open ? 'translateY(0)' : 'translateY(-8px)';
+          sheet.style.opacity = open ? '1' : '0';
+        }
+        if (menuIcon && closeIcon) {
+          menuIcon.classList.toggle('hidden', open);
+          closeIcon.classList.toggle('hidden', !open);
+        }
+      }
+      navToggle?.addEventListener('click', () => {
+        const open = navToggle.getAttribute('aria-expanded') !== 'true';
+        setMobileOpen(open);
+      });
+      overlay?.addEventListener('click', () => setMobileOpen(false));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setMobileOpen(false);
+      });
+      document.querySelectorAll('[data-mobile-link]').forEach((a) => {
+        a.addEventListener('click', () => setMobileOpen(false));
+      });
+
+      // Mini chart (board)
+      (function initMini() {
+        const ctx = document.getElementById('miniChart')?.getContext('2d');
+        if (!ctx || typeof Chart === 'undefined') return;
+        const gradient = ctx.createLinearGradient(0, 0, 0, 80);
+        gradient.addColorStop(0, 'rgba(59,130,246,0.35)');
+        gradient.addColorStop(1, 'rgba(59,130,246,0.02)');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: Array.from({ length: 10 }, (_, i) => i + 1),
+            datasets: [
+              {
+                data: [2, 3, 4, 3, 5, 6, 5, 7, 8, 9],
+                tension: 0.35,
+                fill: true,
+                backgroundColor: gradient,
+                borderColor: '#60a5fa',
+                borderWidth: 1.5,
+                pointRadius: 0
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false }, tooltip: { enabled: false } },
+            scales: { x: { display: false }, y: { display: false } },
+            elements: { line: { borderCapStyle: 'round', borderJoinStyle: 'round' } }
+          }
+        });
+      })();
+
+      // Main chart (analytics)
+      (function initMain() {
+        const ctx = document.getElementById('mainChart')?.getContext('2d');
+        if (!ctx || typeof Chart === 'undefined') return;
+        const grad = ctx.createLinearGradient(0, 0, 0, 300);
+        grad.addColorStop(0, 'rgba(16,185,129,0.35)');
+        grad.addColorStop(1, 'rgba(16,185,129,0.02)');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [
+              {
+                label: 'Completed',
+                data: [14, 12, 16, 18, 22, 20, 24],
+                tension: 0.35,
+                fill: true,
+                backgroundColor: grad,
+                borderColor: '#34d399',
+                borderWidth: 1.5,
+                pointRadius: 0
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: 'rgba(0,0,0,0.8)',
+                borderColor: 'rgba(255,255,255,0.08)',
+                borderWidth: 1,
+                padding: 10,
+                titleColor: '#fff',
+                bodyColor: '#d1d5db',
+                displayColors: false
+              }
+            },
+            scales: {
+              x: {
+                grid: { color: 'rgba(255,255,255,0.06)' },
+                ticks: { color: '#a3a3a3', font: { size: 11 } }
+              },
+              y: {
+                grid: { color: 'rgba(255,255,255,0.06)' },
+                ticks: { color: '#a3a3a3', font: { size: 11 } }
+              }
+            },
+            elements: { line: { borderCapStyle: 'round', borderJoinStyle: 'round' } }
+          }
+        });
+      })();
+
+      // Sparkline (product block)
+      (function initSpark() {
+        const ctx = document.getElementById('spark')?.getContext('2d');
+        if (!ctx || typeof Chart === 'undefined') return;
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: Array.from({ length: 20 }, (_, i) => i),
+            datasets: [
+              {
+                data: [98, 97, 98, 97, 98, 99, 98, 98, 99, 98, 98, 99, 98, 98, 99, 98, 99, 98, 99, 98],
+                tension: 0.35,
+                fill: false,
+                borderColor: '#818cf8',
+                borderWidth: 1.5,
+                pointRadius: 0
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false }, tooltip: { enabled: false } },
+            scales: { x: { display: false }, y: { display: false } }
+          }
+        });
+      })();
+
+      // Custom checkboxes + counters
+      const tasksRoot = document.getElementById('task-list');
+      const counter = document.getElementById('task-counter');
+      function updateCounter() {
+        const total = tasksRoot?.querySelectorAll('[data-task]').length || 0;
+        const done =
+          tasksRoot?.querySelectorAll('[data-checkbox][aria-checked="true"]')
+            .length || 0;
+        if (counter) counter.textContent = `${done}/${total} done`;
+      }
+      function toggleCheckbox(btn) {
+        const isOn = btn.getAttribute('aria-checked') === 'true';
+        const icon = btn.querySelector('svg');
+        const row = btn.closest('[data-task]');
+        btn.setAttribute('aria-checked', String(!isOn));
+        if (icon) icon.style.opacity = isOn ? '0' : '1';
+        if (row) {
+          const text = row.querySelector('p.text-sm');
+          row.classList.toggle('opacity-60', !isOn);
+          if (text) text.classList.toggle('line-through', !isOn);
+        }
+        updateCounter();
+      }
+      tasksRoot?.querySelectorAll('[data-checkbox]').forEach((btn) => {
+        btn.addEventListener('click', () => toggleCheckbox(btn));
+      });
+      updateCounter();
+
+      // Clear completed
+      document
+        .getElementById('clear-completed')
+        ?.addEventListener('click', () => {
+          tasksRoot
+            ?.querySelectorAll('[data-checkbox][aria-checked="true"]')
+            .forEach((btn) => {
+              const row = btn.closest('[data-task]');
+              row?.parentNode?.removeChild(row);
+            });
+          updateCounter();
+        });
+
+      // Quick add
+      document.getElementById('add-quick')?.addEventListener('click', () => {
+        const title = prompt('New task');
+        if (!title) return;
+        const node = document.createElement('div');
+        node.className =
+          'flex items-start gap-3 rounded-lg bg-white/5 border border-white/10 px-3 py-2';
+        node.setAttribute('data-task', '');
+        node.innerHTML = `
+          <button type="button"
+            class="relative mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-md bg-black/40 border border-white/15 hover:border-white/25 transition"
+            data-checkbox aria-checked="false" aria-label="Toggle task">
+            <svg data-lucide="check" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+              class="w-3.5 h-3.5 opacity-0 transition"><path d="M20 6 9 17l-5-5"></path></svg>
+          </button>
+          <div class="min-w-0">
+            <p class="text-sm leading-snug"></p>
+            <p class="text-xs text-gray-400">Added just now</p>
+          </div>
+        `;
+        node.querySelector('p.text-sm').textContent = title;
+        tasksRoot?.appendChild(node);
+        // Activate icon and checkbox
+        if (window.lucide && window.lucide.createIcons) {
+          lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+        }
+        const btn = node.querySelector('[data-checkbox]');
+        btn?.addEventListener('click', () => toggleCheckbox(btn));
+        updateCounter();
+      });
+
+      // Footer year
+      document.getElementById('year').textContent =
+        new Date().getFullYear().toString();
+    </script>
+  
+</body></html>
+Aura Logo
+Made in Aura
+
+Meng To
+
+Remix
+Preview
+Code
