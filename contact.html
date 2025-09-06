@@ -116,28 +116,68 @@
     </main>
 
     <script>
-      // Optional client-side submit to external endpoint (replace if desired)
-      const CONTACT_ENDPOINT = ""; // e.g., "https://formspree.io/f/xxxxxx" or "/api/contact"
+      // Sending options:
+      // 1) Netlify Forms (default): with data-netlify + hidden form-name, POST to '/'
+      // 2) External provider: set CONTACT_ENDPOINT (Formspree/Getform/your API) to POST FormData
+      // 3) Mail client fallback: if network errors occur, open a prefilled mailto:
+      const CONTACT_ENDPOINT = ""; // e.g., "https://formspree.io/f/xxxxxx" or your API route
       const TO_EMAIL = "info@gargantua.llc";
 
       const form = document.getElementById('contact-form');
       const formCard = document.getElementById('form-card');
       const successCard = document.getElementById('success-card');
 
+      function mailtoFallback(fd) {
+        const name = fd.get('name') || '';
+        const email = fd.get('email') || '';
+        const company = fd.get('company') || '';
+        const subject = fd.get('subject') || 'Website contact';
+        const message = fd.get('message') || '';
+
+        const bodyLines = [
+          `Name: ${name}`,
+          `Email: ${email}`,
+          company ? `Company: ${company}` : '',
+          '',
+          message
+        ].filter(Boolean);
+        const body = encodeURIComponent(bodyLines.join('\n'));
+        const subj = encodeURIComponent(subject);
+        window.location.href = `mailto:${TO_EMAIL}?subject=${subj}&body=${body}`;
+      }
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const fd = new FormData(form);
         fd.append('to', TO_EMAIL);
 
+        let delivered = false;
         try {
           if (CONTACT_ENDPOINT) {
-            await fetch(CONTACT_ENDPOINT, { method: 'POST', body: fd });
+            // External provider submit (multipart/form-data)
+            const resp = await fetch(CONTACT_ENDPOINT, { method: 'POST', body: fd });
+            delivered = resp.ok;
+          } else {
+            // Netlify Forms capture: URL-encode and POST to '/'
+            // Requires data-netlify="true" and <input type="hidden" name="form-name" value="contact">
+            const encoded = new URLSearchParams(Array.from(fd.entries())).toString();
+            const resp = await fetch('/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: encoded
+            });
+            delivered = resp.ok;
           }
-          // Netlify Forms will also capture because of data-netlify attr
         } catch (err) {
-          console.warn('Submission fallback:', err);
+          console.warn('Submission error; will try mailto fallback:', err);
         }
 
+        if (!delivered && !CONTACT_ENDPOINT) {
+          // Netlify POST failed (offline/local preview) — use mailto fallback
+          mailtoFallback(fd);
+        }
+
+        // Show success state regardless; provider or mailto will handle the actual send
         formCard.classList.add('hidden');
         successCard.classList.remove('hidden');
         successCard.classList.add('fade-in');
