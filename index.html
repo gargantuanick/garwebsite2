@@ -2,6 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gargantua Group — Transforming Data Into Business Intelligence</title>
 <meta name="description" content="Gargantua Group specializes in strategy, data processing, machine learning, and generative AI — transforming raw data into business intelligence.">
+<link rel="icon" type="image/png" href="assets/gargantua-logo.png">
+<link rel="apple-touch-icon" href="assets/gargantua-logo.png">
+<meta property="og:image" content="assets/gargantua-logo.png">
+<meta name="twitter:image" content="assets/gargantua-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -72,8 +76,13 @@ transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 transition: opacity 0.6s ease;
 }
 .card-content {
-transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* Team image framing: shift content down slightly so heads aren't cropped */
+/* Team portraits: centered framing without extra zoom */
+.team-image { object-position: center 50%; }
+/* Team card shrink */
+.team-card { width: 80%; margin-left: auto; margin-right: auto; }
 /* Counter Animation */
 @keyframes countUp {
 from { opacity: 0; transform: translateY(20px); }
@@ -293,7 +302,7 @@ animation: countUp 0.8s ease-out forwards;
     
 
     <!-- Interactive IDE Section -->
-    <section class="pt-20 pb-20">
+    <section class="pt-20 pb-20 hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="stagger-2 glass-effect relative overflow-hidden bg-gradient-to-br from-gray-900/50 to-black/50 border-white/10 border rounded-3xl pt-8 pr-8 pb-8 pl-8 blur-in">
                 <!-- IDE Header -->
@@ -629,62 +638,276 @@ animation: countUp 0.8s ease-out forwards;
         </div>
     </section>
 
-    <!-- Gargantua Intro Section -->
-    <section id="about" class="pt-24 pb-16">
-        <div class="max-w-5xl sm:px-6 lg:px-8 mr-auto ml-auto pr-4 pl-4 text-left">
+    
+
+    <!-- Gargantua Intro Section (positioned below hero, above services) -->
+    <section id="about" class="pt-72 pb-24">
+        <div class="max-w-6xl sm:px-6 lg:px-8 mr-auto ml-auto pr-4 pl-4 text-left">
             <h2 class="slide-up text-4xl sm:text-5xl sf-pro-display tracking-tight mb-6 font-light">TRANSFORMING DATA INTO INTELLIGENCE</h2>
-            <p class="slide-up stagger-2 text-xl text-white/70 leading-relaxed mb-6">
+            <p class="slide-up stagger-2 text-2xl text-white/70 leading-relaxed mb-6 max-w-4xl">
                 Gargantua Group stands at the forefront of technology, specializing in strategy, data processing, machine learning, and generative AI services.
             </p>
-            <p class="slide-up stagger-3 text-white/60 leading-relaxed max-w-3xl">
+            <p class="slide-up stagger-3 text-2xl text-white/70 leading-relaxed max-w-4xl">
                 We excel in converting raw, messy data into structured datasets that empower advanced analytics and AI systems. Our offerings include Intelligent Data Mastery, where we unveil actionable insights; Cognitive System Engineering, providing bespoke AI tools; and Ecosystem Architecture, designing platforms that enhance engagement and revenue. Partner with us to revolutionize your business and achieve unprecedented growth.
             </p>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="pt-8 pb-24">
+    <section id="services" class="pt-32 pb-24">
         <div class="max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pr-4 pl-4">
             <div class="text-left mb-12">
                 <h2 class="slide-up text-4xl sm:text-5xl sf-pro-display tracking-tight mb-4 font-light">Our Services</h2>
                 <p class="slide-up text-lg text-white/60">Harness the power of data and AI.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="fade-in group p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500">
-                    <div class="w-10 h-10 flex bg-neutral-50/5 border-neutral-50/20 border rounded-xl backdrop-blur-md items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database h-6 w-6 text-white"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"></path><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"></path></svg>
+                <!-- Service Card 1 -->
+                <div class="fade-in stagger-3 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-blue-500/20 to-purple-600/20 relative overflow-hidden">
+                        <a href="services/data-mastery.html" class="absolute inset-0 z-10" aria-label="Explore Intelligent Data Mastery"></a>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
+                        <img src="https://hoirqrkdgbmvpwutwuwj-all.supabase.co/storage/v1/object/public/assets/assets/c7c582f0-2e26-487e-ae18-fee9da10561d_800w.jpg" alt="Data intelligence service" class="w-full h-full object-cover card-image">
+                        <div class="absolute top-4 left-4">
+                            <div class="px-3 py-1 bg-black/50 glass-effect rounded-full text-xs font-medium">
+                                Service
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 flex bg-neutral-50/5 border-neutral-50/20 border rounded-xl backdrop-blur-md items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="database" class="lucide lucide-database h-5 w-5 text-white"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"></path></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold sf-pro-display">Intelligent Data Mastery</h3>
+                                    <p class="text-sm text-white/70">Advanced analytics & insights</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold sf-pro-display mb-3">INTELLIGENT DATA MASTERY</h3>
-                    <p class="text-white/60 leading-relaxed mb-4">Unlock actionable insights through advanced data analytics.</p>
-                    <a href="#contact" class="text-white/70 hover:text-white transition-colors font-medium inline-flex items-center gap-2">Learn more<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right h-4 w-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                    <div class="p-8 card-content">
+                        <h4 class="text-xl font-semibold sf-pro-display mb-4">Unlock actionable insights</h4>
+                        <p class="text-white/60 mb-6 leading-relaxed">We convert raw, messy data into structured assets that fuel analytics and AI.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-white/70">Learn more</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </div>
+                    </div>
                 </div>
-                <div class="fade-in group p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500">
-                    <div class="w-10 h-10 flex bg-neutral-50/5 border-neutral-50/20 border rounded-xl backdrop-blur-md items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-circuit h-6 w-6 text-white"><path d="M12 6V4"></path><path d="M6 12H4"></path><path d="M12 20v-2"></path><path d="M20 12h-2"></path><path d="M11 5a7 7 0 0 0-6 7c0 2.8 1.6 5.2 4 6.3"></path><path d="M13 5a7 7 0 0 1 6 7c0 2.8-1.6 5.2-4 6.3"></path><path d="M10 14a3 3 0 0 0 4 0"></path></svg>
+
+                <!-- Service Card 2 -->
+                <div class="fade-in stagger-4 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-purple-500/20 to-pink-600/20 relative overflow-hidden">
+                        <a href="services/cognitive-system.html" class="absolute inset-0 z-10" aria-label="Explore Cognitive System Engineering"></a>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
+                        <img src="https://hoirqrkdgbmvpwutwuwj-all.supabase.co/storage/v1/object/public/assets/assets/36460156-d7ce-43aa-89af-e013fb87ccfc_800w.jpg" alt="AI engineering service" class="w-full h-full object-cover card-image">
+                        <div class="absolute top-4 left-4">
+                            <div class="px-3 py-1 bg-black/50 glass-effect rounded-full text-xs font-medium">Service</div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 flex bg-neutral-50/5 border-neutral-50/20 border rounded-xl backdrop-blur-md items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="brain-circuit" class="lucide lucide-brain-circuit h-5 w-5 text-white"><path d="M12 6V4"></path><path d="M6 12H4"></path><path d="M12 20v-2"></path><path d="M20 12h-2"></path></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold sf-pro-display">Cognitive System Engineering</h3>
+                                    <p class="text-sm text-white/70">Bespoke ML & generative AI</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold sf-pro-display mb-3">COGNITIVE SYSTEM ENGINEERING</h3>
-                    <p class="text-white/60 leading-relaxed mb-4">Elevate your business with bespoke AI systems and machine learning solutions.</p>
-                    <a href="#contact" class="text-white/70 hover:text-white transition-colors font-medium inline-flex items-center gap-2">Learn more<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right h-4 w-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                    <div class="p-8 card-content">
+                        <h4 class="text-xl font-semibold sf-pro-display mb-4">Build bespoke AI systems</h4>
+                        <p class="text-white/60 mb-6 leading-relaxed">From prototypes to production-grade models and tooling for your workflows.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-white/70">Learn more</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </div>
+                    </div>
                 </div>
-                <div class="fade-in group p-8 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500">
-                    <div class="w-10 h-10 flex bg-neutral-50/5 border-neutral-50/20 border rounded-xl backdrop-blur-md items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers h-6 w-6 text-white"><path d="m12 2 8 4-8 4-8-4Z"></path><path d="m2 10 10 5 10-5"></path><path d="m2 18 10 5 10-5"></path></svg>
+
+                <!-- Service Card 3 -->
+                <div class="fade-in stagger-5 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-orange-500/20 to-red-600/20 relative overflow-hidden">
+                        <a href="services/ecosystem-architecture.html" class="absolute inset-0 z-10" aria-label="Explore Ecosystem Architecture"></a>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
+                        <img src="https://hoirqrkdgbmvpwutwuwj-all.supabase.co/storage/v1/object/public/assets/assets/9cd1d4fc-703c-4e4d-a54e-9c08b0644568_800w.jpg" alt="Platform architecture service" class="w-full h-full object-cover card-image">
+                        <div class="absolute top-4 left-4">
+                            <div class="px-3 py-1 bg-black/50 glass-effect rounded-full text-xs font-medium">Service</div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 flex bg-neutral-50/5 border-neutral-50/20 border rounded-xl backdrop-blur-md items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="layers" class="lucide lucide-layers h-5 w-5 text-white"><path d="m12 2 8 4-8 4-8-4Z"></path><path d="m2 10 10 5 10-5"></path><path d="m2 18 10 5 10-5"></path></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold sf-pro-display">Ecosystem Architecture</h3>
+                                    <p class="text-sm text-white/70">Platforms, engagement & monetization</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold sf-pro-display mb-3">ECOSYSTEM ARCHITECTURE</h3>
-                    <p class="text-white/60 leading-relaxed mb-4">Build collaborative digital platforms that enhance user engagement and drive monetization programs.</p>
-                    <a href="#contact" class="text-white/70 hover:text-white transition-colors font-medium inline-flex items-center gap-2">Learn more<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right h-4 w-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+                    <div class="p-8 card-content">
+                        <h4 class="text-xl font-semibold sf-pro-display mb-4">Design collaborative platforms</h4>
+                        <p class="text-white/60 mb-6 leading-relaxed">Architect systems that scale engagement and revenue across your ecosystem.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-white/70">Learn more</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    
+
     <!-- Team Section -->
     <section id="team" class="pt-8 pb-24">
-        <div class="max-w-5xl sm:px-6 lg:px-8 mr-auto ml-auto pr-4 pl-4">
-            <h2 class="slide-up text-4xl sm:text-5xl sf-pro-display tracking-tight mb-6 font-light">Our Team</h2>
-            <p class="slide-up stagger-2 text-white/60 leading-relaxed max-w-3xl">
-                Drawing from elite technology talent across worldwide innovation hubs, Gargantua Group blends strategy, engineering, and design to deliver data-driven, AI-powered outcomes.
-            </p>
+        <div class="max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pr-4 pl-4">
+            <div class="text-left mb-12">
+                <h2 class="slide-up text-4xl sm:text-5xl sf-pro-display tracking-tight mb-4 font-light">Our Team</h2>
+                <p class="slide-up text-lg text-white/60 max-w-3xl">Drawing from elite technology talent across worldwide innovation hubs, we blend strategy, engineering, and design to deliver data-driven, AI-powered outcomes.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Member: Nick Kim -->
+                <div class="team-card fade-in stagger-3 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-blue-500/20 to-purple-600/20 relative overflow-hidden">
+                        <a href="team/nick-kim.html" class="absolute inset-0 z-10" aria-label="View Nick Kim profile"></a>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
+                        <img src="https://gargantua.llc/images/team/nick-kim.jpg" alt="Nick Kim" class="w-full h-full object-cover card-image team-image">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center">
+                                <div>
+                                    <h3 class="font-semibold sf-pro-display">Nick Kim</h3>
+                                    <p class="text-sm text-white/70">CEO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 card-content">
+                        <p class="text-white/60 mb-6 leading-relaxed">Former Google & YouTube leader with 20 years building transformative platforms; helps organizations harness data and AI for global impact.</p>
+                        <div class="flex items-center justify-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member: Edward Jones -->
+                <div class="team-card fade-in stagger-4 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-purple-500/20 to-pink-600/20 relative overflow-hidden">
+                        <a href="team/edward-jones.html" class="absolute inset-0 z-10" aria-label="View Edward Jones profile"></a>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
+                        <img src="https://gargantua.llc/images/team/edward-jones.jpg" alt="Edward Jones" class="w-full h-full object-cover card-image team-image">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center">
+                                <div>
+                                    <h3 class="font-semibold sf-pro-display">Edward Jones</h3>
+                                    <p class="text-sm text-white/70">CTO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 card-content">
+                        <p class="text-white/60 mb-6 leading-relaxed">20 years of software engineering across Google and Lockheed Martin; guides technical transformation with integrity and excellence.</p>
+                        <div class="flex items-center justify-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member: Joanna Ng -->
+                <div class="team-card fade-in stagger-5 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-orange-500/20 to-red-600/20 relative overflow-hidden">
+                        <a href="team/joanna-ng.html" class="absolute inset-0 z-10" aria-label="View Joanna Ng profile"></a>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
+                        <img src="https://gargantua.llc/images/team/joanna-ng.jpg" alt="Joanna Ng" class="w-full h-full object-cover card-image team-image">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center">
+                                <div>
+                                    <h3 class="font-semibold sf-pro-display">Joanna Ng</h3>
+                                    <p class="text-sm text-white/70">Chief AI Officer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 card-content">
+                        <p class="text-white/60 mb-6 leading-relaxed">Former IBM Master Inventor and Research Director with 50 patents; leads AI advancement at Gargantua Group.</p>
+                        <div class="flex items-center justify-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member: Jonathan Rajan -->
+                <div class="team-card fade-in stagger-3 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-blue-500/20 to-purple-600/20 relative overflow-hidden">
+                        <a href="team/jonathan-rajan.html" class="absolute inset-0 z-10" aria-label="View Jonathan Rajan profile"></a>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
+                        <img src="https://gargantua.llc/images/team/jonathan-rajan.jpg" alt="Jonathan Rajan" class="w-full h-full object-cover card-image team-image">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center">
+                                <div>
+                                    <h3 class="font-semibold sf-pro-display">Jonathan Rajan</h3>
+                                    <p class="text-sm text-white/70">AI Software Engineer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 card-content">
+                        <p class="text-white/60 mb-6 leading-relaxed">Mathematical prodigy and former Google engineer building innovative ML and LLM solutions.</p>
+                        <div class="flex items-center justify-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member: Richard Zhang -->
+                <div class="team-card fade-in stagger-4 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-purple-500/20 to-pink-600/20 relative overflow-hidden">
+                        <a href="team/richard-zhang.html" class="absolute inset-0 z-10" aria-label="View Richard Zhang profile"></a>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
+                        <img src="https://gargantua.llc/images/team/richard-zhang.jpg" alt="Richard Zhang" class="w-full h-full object-cover card-image team-image">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center">
+                                <div>
+                                    <h3 class="font-semibold sf-pro-display">Richard Zhang, PhD</h3>
+                                    <p class="text-sm text-white/70">AI Research Scientist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 card-content">
+                        <p class="text-white/60 mb-6 leading-relaxed">Google DeepMind researcher and OSS Vizier co‑creator, specializing in hyperparameter optimization and theoretical ML.</p>
+                        <div class="flex items-center justify-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member: David Lindelöf -->
+                <div class="team-card fade-in stagger-5 success-card bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden">
+                    <div class="aspect-[4/5] bg-gradient-to-br from-orange-500/20 to-red-600/20 relative overflow-hidden">
+                        <a href="team/david-lindelof.html" class="absolute inset-0 z-10" aria-label="View David Lindelöf profile"></a>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent card-gradient"></div>
+                        <img src="https://gargantua.llc/images/team/david-lindelof.jpg" alt="David Lindelöf" class="w-full h-full object-cover card-image team-image">
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center">
+                                <div>
+                                    <h3 class="font-semibold sf-pro-display">David Lindelöf, PhD</h3>
+                                    <p class="text-sm text-white/70">Lead Data Scientist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 card-content">
+                        <p class="text-white/60 mb-6 leading-relaxed">Lead data scientist at YouTube focusing on recommendations and causal inference; ex‑Expedia, former CTO at Neurobat AG (28% energy savings).</p>
+                        <div class="flex items-center justify-end">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
