@@ -1,0 +1,147 @@
+<html lang="en" class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Us — Gargantua Group</title>
+    <meta name="description" content="Get in touch with Gargantua Group." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      body { font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+      .sf-pro-display { font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+      .glass-effect { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+      .fade-in { opacity: 0; animation: fadeIn 1s ease-out forwards; }
+      .slide-up { transform: translateY(24px); opacity: 0; animation: slideUp .8s ease-out forwards; }
+      .stagger-1 { animation-delay: .1s; }
+      .stagger-2 { animation-delay: .2s; }
+      .stagger-3 { animation-delay: .3s; }
+      @keyframes fadeIn { to { opacity: 1; } }
+      @keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
+      .bg-image::before {
+        content: ""; position: fixed; inset: 0; z-index: -2;
+        background: url('images/contact-background.jpg') center/cover no-repeat;
+        filter: saturate(1.0) brightness(.9);
+      }
+      .bg-image::after {
+        content: ""; position: fixed; inset: 0; z-index: -1;
+        background: rgba(0,0,0,0.5);
+      }
+      .field { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); }
+      .field:focus { outline: none; border-color: rgba(255,255,255,.35); box-shadow: 0 0 0 4px rgba(255,255,255,.08); }
+      .btn { transition: transform .15s ease, background-color .2s ease; }
+      .btn:hover { transform: translateY(-1px); }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[#0d1117] text-white bg-image">
+    <!-- Header -->
+    <header class="fixed top-4 left-4 right-4 z-50 fade-in">
+      <div class="max-w-7xl mx-auto">
+        <div class="h-14 flex glass-effect bg-white/5 border-white/10 border rounded-full px-3 items-center justify-between">
+          <div class="flex gap-2 items-center">
+            <a class="w-8 h-8 relative" href="index.html#home" aria-label="Home">
+              <img src="images/gargantua-logo.jpg" alt="Gargantua Group Logo" class="absolute inset-0 w-full h-full object-contain" />
+            </a>
+            <span class="text-lg font-medium sf-pro-display">Gargantua Group</span>
+          </div>
+          <nav class="hidden md:flex items-center gap-8 text-sm">
+            <a href="index.html#services" class="text-white/70 hover:text-white transition-colors">Services</a>
+            <a href="index.html#team" class="text-white/70 hover:text-white transition-colors">Team</a>
+            <a href="contact.html" class="text-white transition-colors">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="pt-36 pb-8">
+      <div class="max-w-3xl mx-auto px-4 text-center">
+        <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-5 slide-up stagger-1">
+          <div class="w-2 h-2 rounded-full animate-pulse bg-cyan-400"></div>
+          <span class="text-sm font-medium">We’d love to hear from you</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl sf-pro-display tracking-tight mb-4 font-light slide-up stagger-2">Contact Us</h1>
+        <p class="text-white/70 text-lg slide-up stagger-3">Tell us about your goals. We’ll get back within 1–2 business days.</p>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <main class="pb-24">
+      <div class="max-w-3xl mx-auto px-4">
+        <div id="form-card" class="glass-effect bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-10 fade-in stagger-2">
+          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm text-white/70 mb-2">Full Name</label>
+                <input class="field w-full rounded-2xl px-4 py-3" type="text" name="name" required />
+              </div>
+              <div>
+                <label class="block text-sm text-white/70 mb-2">Email</label>
+                <input class="field w-full rounded-2xl px-4 py-3" type="email" name="email" required />
+              </div>
+              <div>
+                <label class="block text-sm text-white/70 mb-2">Company</label>
+                <input class="field w-full rounded-2xl px-4 py-3" type="text" name="company" />
+              </div>
+              <div>
+                <label class="block text-sm text-white/70 mb-2">Subject</label>
+                <input class="field w-full rounded-2xl px-4 py-3" type="text" name="subject" />
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-sm text-white/70 mb-2">How can we help?</label>
+                <textarea class="field w-full rounded-2xl px-4 py-3 min-h-[140px]" name="message" required></textarea>
+              </div>
+            </div>
+            <div class="mt-6 flex items-center justify-between gap-3 flex-wrap">
+              <p class="text-white/50 text-sm">We’ll email a confirmation to info@gargantua.llc</p>
+              <button class="btn px-6 py-3 bg-white text-black rounded-full font-semibold hover:bg-white/90" type="submit">Send message</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="success-card" class="hidden glass-effect bg-white/5 border border-white/10 rounded-3xl p-10 text-center">
+          <div class="mx-auto w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-300"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h2 class="text-2xl sf-pro-display mb-2">Thanks — we got your message</h2>
+          <p class="text-white/70">We’ll review and reach out shortly at the email you provided.</p>
+          <div class="mt-6">
+            <a href="index.html#home" class="px-6 py-3 border border-white/20 rounded-full hover:bg-white/10">Back to home</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Optional client-side submit to external endpoint (replace if desired)
+      const CONTACT_ENDPOINT = ""; // e.g., "https://formspree.io/f/xxxxxx" or "/api/contact"
+      const TO_EMAIL = "info@gargantua.llc";
+
+      const form = document.getElementById('contact-form');
+      const formCard = document.getElementById('form-card');
+      const successCard = document.getElementById('success-card');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(form);
+        fd.append('to', TO_EMAIL);
+
+        try {
+          if (CONTACT_ENDPOINT) {
+            await fetch(CONTACT_ENDPOINT, { method: 'POST', body: fd });
+          }
+          // Netlify Forms will also capture because of data-netlify attr
+        } catch (err) {
+          console.warn('Submission fallback:', err);
+        }
+
+        formCard.classList.add('hidden');
+        successCard.classList.remove('hidden');
+        successCard.classList.add('fade-in');
+      });
+    </script>
+  </body>
+  </html>
