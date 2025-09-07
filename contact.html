@@ -17,14 +17,17 @@
       .stagger-3 { animation-delay: .3s; }
       @keyframes fadeIn { to { opacity: 1; } }
       @keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
+      /* Layer 1: blurred cover backdrop (preserves aspect ratio, fills screen) */
       .bg-image::before {
         content: ""; position: fixed; inset: 0; z-index: -2;
-        background: url('images/contact-background.jpg') center/cover no-repeat;
-        filter: saturate(1.0) brightness(.9);
+        background: #000 url('images/sun-clouds-wide-dark.png') center 98% / cover no-repeat;
+        filter: blur(20px) saturate(1.05) brightness(.75);
       }
+      /* Layer 2: crisp non-stretched image on top (zoomed out ~20%) */
       .bg-image::after {
         content: ""; position: fixed; inset: 0; z-index: -1;
-        background: rgba(0,0,0,0.5);
+        background: url('images/sun-clouds-wide-dark.png') center 98% / cover no-repeat;
+        filter: saturate(1.02) brightness(.9);
       }
       .field { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); }
       .field:focus { outline: none; border-color: rgba(255,255,255,.35); box-shadow: 0 0 0 4px rgba(255,255,255,.08); }
@@ -96,8 +99,7 @@
                 <textarea class="field w-full rounded-2xl px-4 py-3 min-h-[140px]" name="message" required></textarea>
               </div>
             </div>
-            <div class="mt-6 flex items-center justify-between gap-3 flex-wrap">
-              <p class="text-white/50 text-sm">We’ll email a confirmation to nick@gargantua.llc</p>
+            <div class="mt-6 flex items-center justify-end gap-3 flex-wrap">
               <button class="btn px-6 py-3 bg-white text-black rounded-full font-semibold hover:bg-white/90" type="submit">Send message</button>
             </div>
           </form>
