@@ -68,8 +68,9 @@
     <main class="pb-24">
       <div class="max-w-3xl mx-auto px-4">
         <div id="form-card" class="glass-effect bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-10 fade-in stagger-2">
-          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="subject" value="Website inquiry from gargantua.llc" />
             <p class="hidden">
               <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
             </p>
@@ -96,7 +97,7 @@
               </div>
             </div>
             <div class="mt-6 flex items-center justify-between gap-3 flex-wrap">
-              <p class="text-white/50 text-sm">We’ll email a confirmation to info@gargantua.llc</p>
+              <p class="text-white/50 text-sm">We’ll email a confirmation to nick@gargantua.llc</p>
               <button class="btn px-6 py-3 bg-white text-black rounded-full font-semibold hover:bg-white/90" type="submit">Send message</button>
             </div>
           </form>
@@ -121,34 +122,17 @@
       // 2) External provider: set CONTACT_ENDPOINT (Formspree/Getform/your API) to POST FormData
       // 3) Mail client fallback: if network errors occur, open a prefilled mailto:
       const CONTACT_ENDPOINT = ""; // e.g., "https://formspree.io/f/xxxxxx" or your API route
-      const TO_EMAIL = "info@gargantua.llc";
+      const TO_EMAIL = "nick@gargantua.llc";
 
       const form = document.getElementById('contact-form');
       const formCard = document.getElementById('form-card');
       const successCard = document.getElementById('success-card');
 
-      function mailtoFallback(fd) {
-        const name = fd.get('name') || '';
-        const email = fd.get('email') || '';
-        const company = fd.get('company') || '';
-        const subject = fd.get('subject') || 'Website contact';
-        const message = fd.get('message') || '';
-
-        const bodyLines = [
-          `Name: ${name}`,
-          `Email: ${email}`,
-          company ? `Company: ${company}` : '',
-          '',
-          message
-        ].filter(Boolean);
-        const body = encodeURIComponent(bodyLines.join('\n'));
-        const subj = encodeURIComponent(subject);
-        window.location.href = `mailto:${TO_EMAIL}?subject=${subj}&body=${body}`;
-      }
-
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const fd = new FormData(form);
+        // Ensure Netlify sees the form name in the encoded payload
+        fd.set('form-name', 'contact');
         fd.append('to', TO_EMAIL);
 
         let delivered = false;
@@ -169,12 +153,7 @@
             delivered = resp.ok;
           }
         } catch (err) {
-          console.warn('Submission error; will try mailto fallback:', err);
-        }
-
-        if (!delivered && !CONTACT_ENDPOINT) {
-          // Netlify POST failed (offline/local preview) — use mailto fallback
-          mailtoFallback(fd);
+          console.warn('Submission error; staying on page:', err);
         }
 
         // Show success state regardless; provider or mailto will handle the actual send
