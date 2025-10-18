@@ -786,7 +786,7 @@ animation: countUp 0.8s ease-out forwards;
                         </div>
                     </div>
                     <div class="p-8 card-content">
-                        <p class="text-white/60 mb-6 leading-relaxed">Former Google & YouTube leader with 20 years building transformative platforms; helps organizations harness data and AI for global impact.</p>
+                        <p class="text-white/60 mb-6 leading-relaxed">Former Google &amp; YouTube leader with 20 years building transformative platforms; drives data/AI innovation at Gargantua and advances data center/energy infrastructure for a seasoned family office in South Korea &amp; Malaysia.</p>
                         <div class="flex items-center justify-end">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-5 w-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                         </div>
