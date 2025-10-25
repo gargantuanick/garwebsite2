@@ -6,8 +6,8 @@
     <meta name="description" content="Get in touch with Gargantua Group." />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="icon" type="image/jpeg" href="images/gargantua-logo.jpg" />
-    <link rel="apple-touch-icon" type="image/jpeg" href="images/gargantua-logo.jpg" />
+    <link rel="icon" type="image/jpeg" href="images/gargantua-logo-optimized.jpg" />
+    <link rel="apple-touch-icon" type="image/jpeg" href="images/gargantua-logo-optimized.jpg" />
     <style>
       body { font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
       .sf-pro-display { font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
@@ -22,13 +22,13 @@
       /* Layer 1: blurred cover backdrop (preserves aspect ratio, fills screen) */
       .bg-image::before {
         content: ""; position: fixed; inset: 0; z-index: -2;
-        background: #000 url('images/sun-clouds-wide-dark.png') center 98% / cover no-repeat;
+        background: #000 url('images/sun-clouds-wide-dark-optimized.jpg') center 98% / cover no-repeat;
         filter: blur(20px) saturate(1.05) brightness(.75);
       }
       /* Layer 2: crisp non-stretched image on top (zoomed out ~20%) */
       .bg-image::after {
         content: ""; position: fixed; inset: 0; z-index: -1;
-        background: url('images/sun-clouds-wide-dark.png') center 98% / cover no-repeat;
+        background: url('images/sun-clouds-wide-dark-optimized.jpg') center 98% / cover no-repeat;
         filter: saturate(1.02) brightness(.9);
       }
       .field { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); }
@@ -51,7 +51,7 @@
         <div class="h-14 flex glass-effect bg-white/5 border-white/10 border rounded-full px-3 items-center justify-between">
           <div class="flex gap-2 items-center">
             <a class="w-8 h-8 relative" href="index.html#home" aria-label="Home">
-              <img src="images/gargantua-logo.jpg" alt="Gargantua Group Logo" class="absolute inset-0 w-full h-full object-contain" />
+              <img src="images/gargantua-logo-optimized.jpg" alt="Gargantua Group Logo" class="absolute inset-0 w-full h-full object-contain" />
             </a>
             <span class="text-lg font-medium sf-pro-display">Gargantua Group</span>
           </div>
