@@ -1,0 +1,38 @@
+# Netlify Configuration for Gargantua Group Website
+# This is a static HTML site with no build process
+
+[build]
+  # No build command needed - this is a static site
+  command = ""
+  # Publish the root directory (static HTML files)
+  publish = "."
+
+# Note: Netlify's security scanner examines the entire repository
+# The source_gargantua directory contains old Next.js build artifacts
+# that are NOT deployed but may trigger security alerts.
+# 
+# To completely eliminate alerts, consider:
+# 1. Adding source_gargantua/ to .gitignore (if not needed in repo)
+# 2. Or removing the directory entirely
+# 3. Or contacting Netlify support to exclude it from scans
+
+# Headers for static assets
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
